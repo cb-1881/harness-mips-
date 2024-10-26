@@ -1,15 +1,15 @@
 import json
 import matplotlib.pyplot as plt
 
-# Load data from the JSON file
+# get json data
 with open('perlmutter_data.json', 'r') as f:
     data = json.load(f)
 
-# Extract data for each method (direct, vector sum, indirect)
+# data from the perlmutte json above
 methods = ['direct', 'vector sum', 'indirect']
 metrics = {method: data[method] for method in data}
 
-# Function to generate a plot
+# generating our plot 
 def plot_metric(metric_name, ylabel, filename):
     plt.figure(figsize=(10, 6))
     
@@ -25,11 +25,11 @@ def plot_metric(metric_name, ylabel, filename):
     plt.savefig(filename, format='png')
     plt.show()
 
-# Plot MFLOPs
+# mflops
 plot_metric('MFLOPs', 'MFLOPs', 'mflops.png')
 
-# Plot Memory Bandwidth Utilization
+# mem bandwith
 plot_metric('Mem_Bandwidth', '% Memory Bandwidth Utilized', 'memory_bandwidth.png')
 
-# Plot Memory Latency
+# latency 
 plot_metric('Mem_Latency', 'Memory Latency (ns/access)', 'memory_latency.png')
