@@ -1,0 +1,60 @@
+Working on problem size N=8388608 
+ inside direct_sum problem_setup, N=8388608 
+Inside direct_sum perform_sum, N=8388608 
+====METRICS====
+Elapsed time for N=8388608 is : 0.001506 seconds
+ Sum result = -7347953833229266531 
+MFLOP/s: 11140.25
+Memory Bandwidth Utilization: 21.76%
+Average Memory Latency: 1.79529190e-01 ns/access
+====END_METRICS====
+Working on problem size N=16777216 
+ inside direct_sum problem_setup, N=16777216 
+Inside direct_sum perform_sum, N=16777216 
+====METRICS====
+Elapsed time for N=16777216 is : 0.003052 seconds
+ Sum result = -1131492733954911502 
+MFLOP/s: 10994.40
+Memory Bandwidth Utilization: 21.47%
+Average Memory Latency: 1.81910872e-01 ns/access
+====END_METRICS====
+Working on problem size N=33554432 
+ inside direct_sum problem_setup, N=33554432 
+Inside direct_sum perform_sum, N=33554432 
+====METRICS====
+Elapsed time for N=33554432 is : 0.005966 seconds
+ Sum result = -7230426277019410173 
+MFLOP/s: 11248.55
+Memory Bandwidth Utilization: 21.97%
+Average Memory Latency: 1.77800655e-01 ns/access
+====END_METRICS====
+Working on problem size N=67108864 
+ inside direct_sum problem_setup, N=67108864 
+Inside direct_sum perform_sum, N=67108864 
+====METRICS====
+Elapsed time for N=67108864 is : 0.011932 seconds
+ Sum result = -512805484231201876 
+MFLOP/s: 11248.67
+Memory Bandwidth Utilization: 21.97%
+Average Memory Latency: 1.77798793e-01 ns/access
+====END_METRICS====
+Working on problem size N=134217728 
+ inside direct_sum problem_setup, N=134217728 
+Inside direct_sum perform_sum, N=134217728 
+====METRICS====
+Elapsed time for N=134217728 is : 0.023769 seconds
+ Sum result = -6063766206483494759 
+MFLOP/s: 11293.29
+Memory Bandwidth Utilization: 22.06%
+Average Memory Latency: 1.77096270e-01 ns/access
+====END_METRICS====
+Working on problem size N=268435456 
+ inside direct_sum problem_setup, N=268435456 
+Inside direct_sum perform_sum, N=268435456 
+====METRICS====
+Elapsed time for N=268435456 is : 0.081286 seconds
+ Sum result = -2448283423217551953 
+MFLOP/s: 6604.75
+Memory Bandwidth Utilization: 12.90%
+Average Memory Latency: 3.02812550e-01 ns/access
+====END_METRICS====
