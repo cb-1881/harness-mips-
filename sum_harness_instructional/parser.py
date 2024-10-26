@@ -53,8 +53,8 @@ def write_metrics_to_json(metrics, output_filename):
         json.dump(metrics, f, indent=4)
 
 def main():
-    input_filename = 'log.log'  
-    output_filename = 'parsed_metrics_vector.json'
+    input_filename = 'output_indirect.log'  
+    output_filename = 'parsed_metrics_indirect.json'
 
     metrics = parse_log_file(input_filename)
     write_metrics_to_json(metrics, output_filename)

@@ -2,7 +2,7 @@ import json
 import matplotlib.pyplot as plt
 
 # Load data from the JSON file
-with open('supposedly.json', 'r') as f:
+with open('perlmutter_data.json', 'r') as f:
     data = json.load(f)
 
 # Extract data for each method (direct, vector sum, indirect)
