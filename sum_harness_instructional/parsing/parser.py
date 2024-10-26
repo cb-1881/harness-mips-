@@ -7,9 +7,9 @@ import re
 import json
 
 def parse_log_file(filename):
-    # relevant metrics based on strings from executibles
+    # relevant patterns based on strings from executibles
     pattern_n = re.compile(r"Working on problem size N=(\d+)")
-    pattern_mflops = re.compile(r"MFLOP/s: ([\d.]+)")
+    mflop_patterns = re.compile(r"MFLOP/s: ([\d.]+)")
     pattern_bandwidth = re.compile(r"Memory Bandwidth Utilization: ([\d.]+)%")
     pattern_latency = re.compile(r"Average Memory Latency: ([\deE\.\-]+) ns/access")
 
@@ -20,11 +20,11 @@ def parse_log_file(filename):
     latency = []
 
     
-    with open(filename, 'r') as f:
-        for line in f:
+    with open(filename, 'r') as file_for_parsing:
+        for line in file_for_parsing:
            
             n_match = pattern_n.search(line)
-            mflops_match = pattern_mflops.search(line)
+            mflops_match = mflop_patterns.search(line)
             bandwidth_match = pattern_bandwidth.search(line)
             latency_match = pattern_latency.search(line)
 
@@ -38,28 +38,28 @@ def parse_log_file(filename):
                 latency.append(float(latency_match.group(1)))
 
     
-    metrics = {
+    patterns = {
         'N': N,
         'MFLOPs': mflops,
         'Mem_Bandwidth': bandwidth,
         'Mem_Latency': latency
     }
 
-    return metrics
+    return patterns
 
-def write_metrics_to_json(metrics, output_filename):
+def write_patterns_to_json(patterns, output_filename):
     
     with open(output_filename, 'w') as f:
-        json.dump(metrics, f, indent=4)
+        json.dump(patterns, f, indent=4)
 
 def main():
     input_filename = 'output_indirect.log'  
-    output_filename = 'parsed_metrics_indirect.json'
+    output_filename = 'parsed_patterns_indirect.json'
 
-    metrics = parse_log_file(input_filename)
-    write_metrics_to_json(metrics, output_filename)
+    patterns = parse_log_file(input_filename)
+    write_patterns_to_json(patterns, output_filename)
 
-    print(f"Metrics successfully parsed and saved to {output_filename}")
+    print('parsing done')
 
 if __name__ == "__main__":
     main()
