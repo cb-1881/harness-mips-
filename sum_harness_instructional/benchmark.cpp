@@ -26,17 +26,17 @@ double latency_compute(double nanoseconds, double accesses) {
 }
 
 void calculate_performance_metrics(int64_t n, std::chrono::duration<double> elapsed_time) {
-    // Calculate MFLOP/s
-    double ops = (n - 1) / 1e6; // (N-1) additions
+    // mflops
+    double ops = (n - 1) / 1e6; // n-1
     double mflops = ops / elapsed_time.count();
     printf("MFLOP/s for N=%lld is : %lf \n", n, mflops);
 
-    // Calculate % of memory bandwidth utilized
+    // memory bandwidth utilized
     double bytes_accessed = n * sizeof(uint64_t) * 2;
     double percentage_bandwidth = (bytes_accessed / elapsed_time.count()) / BANDWIDTH * 100;
     printf("Memory bandwidth utilized for N=%lld is : %lf%% \n", n, percentage_bandwidth);
 
-    // Calculate estimated memory latency
+    // latency calculation
     double latency = (elapsed_time.count() / (2 * n)) * 1e9;
     printf("Estimated memory latency for N=%lld is : %lf nanoseconds\n", n, latency);
 }
