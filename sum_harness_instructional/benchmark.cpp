@@ -7,6 +7,7 @@
 #include <vector>
 #include <string.h>
 
+const double BANDWIDTH = 204.8e9;  // calculated from perlmutter specs
 // Function declarations
 extern void setup(int64_t N, uint64_t A[]);
 extern int64_t sum(int64_t N, uint64_t A[]);
@@ -24,8 +25,25 @@ double latency_compute(double nanoseconds, double accesses) {
     return nanoseconds / accesses;  // formula for latency
 }
 
+void calculate_performance_metrics(int64_t n, std::chrono::duration<double> elapsed_time) {
+    // Calculate MFLOP/s
+    double ops = (n - 1) / 1e6; // (N-1) additions
+    double mflops = ops / elapsed_time.count();
+    printf("MFLOP/s for N=%lld is : %lf \n", n, mflops);
 
-   double BANDWIDTH = 204.8e9;  // calculated from perlmutter specs
+    // Calculate % of memory bandwidth utilized
+    double bytes_accessed = n * sizeof(uint64_t) * 2;
+    double percentage_bandwidth = (bytes_accessed / elapsed_time.count()) / BANDWIDTH * 100;
+    printf("Memory bandwidth utilized for N=%lld is : %lf%% \n", n, percentage_bandwidth);
+
+    // Calculate estimated memory latency
+    double latency = (elapsed_time.count() / (2 * n)) * 1e9;
+    printf("Estimated memory latency for N=%lld is : %lf nanoseconds\n", n, latency);
+}
+
+
+
+  // double BANDWIDTH = 204.8e9;  // calculated from perlmutter specs
    double element_operations = 2.0;  // 2 operations per element
    double bytes_needed = sizeof(uint64_t);  // bytes for manipulating metrics
 /* The benchmarking program */
@@ -69,20 +87,9 @@ int main(int argc, char** argv)
       printf("Elapsed time for N=%lld is : %lf seconds\n", n, runtime_ns / 1e9);
       printf(" Sum result = %lld \n", t);
 
-      // calc metrics
-      double operations = element_operations * n;
-      double get_total_bytes = bytes_needed * n;
 
-      double mf = mflop_compute(operations, runtime_ns / 1e9);  // nano to seconds
-      double bw = bandwith_compute(get_total_bytes, runtime_ns / 1e9, BANDWIDTH);
-      double lat = latency_compute(runtime_ns, n);  // latency call
-
- 
-
-      //  metrics
-      printf("MFLOP/s: %.2f\n", mf);
-      printf("Memory Bandwidth Utilization: %.2f%%\n", bw);
-      printf("Average Memory Latency: %.8e ns/access\n", lat);
+      calculate_performance_metrics(n, elapsed_time);
+  
       
       printf("====END_METRICS====\n");
    }

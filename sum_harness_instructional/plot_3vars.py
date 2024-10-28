@@ -2,7 +2,7 @@ import json
 import matplotlib.pyplot as plt
 
 # get json data
-with open('perlmutter_data.json', 'r') as f:
+with open('sorted_metrics.json', 'r') as f:
     data = json.load(f)
 
 # data from the perlmutte json above

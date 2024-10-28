@@ -53,8 +53,8 @@ def write_patterns_to_json(patterns, output_filename):
         json.dump(patterns, f, indent=4)
 
 def main():
-    input_filename = 'output_indirect.log'  
-    output_filename = 'parsed_patterns_indirect.json'
+    input_filename = 'out_vector.log'  
+    output_filename = 'parsed_patterns_vector.json'
 
     patterns = parse_log_file(input_filename)
     write_patterns_to_json(patterns, output_filename)
