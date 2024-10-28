@@ -1,0 +1,60 @@
+Working on problem size N=8388608 
+ inside sum_vector problem_setup, N=8388608 
+ inside sum_vector perform_sum, N=8388608 
+====METRICS====
+Elapsed time for N=8388608 is : 0.003570 seconds
+ Sum result = 35184367894528 
+MFLOP/s: 4699.99
+Memory Bandwidth Utilization: 9.18%
+Average Memory Latency: 4.25532818e-01 ns/access
+====END_METRICS====
+Working on problem size N=16777216 
+ inside sum_vector problem_setup, N=16777216 
+ inside sum_vector perform_sum, N=16777216 
+====METRICS====
+Elapsed time for N=16777216 is : 0.006052 seconds
+ Sum result = 140737479966720 
+MFLOP/s: 5544.74
+Memory Bandwidth Utilization: 10.83%
+Average Memory Latency: 3.60701919e-01 ns/access
+====END_METRICS====
+Working on problem size N=33554432 
+ inside sum_vector problem_setup, N=33554432 
+ inside sum_vector perform_sum, N=33554432 
+====METRICS====
+Elapsed time for N=33554432 is : 0.012678 seconds
+ Sum result = 562949936644096 
+MFLOP/s: 5293.25
+Memory Bandwidth Utilization: 10.34%
+Average Memory Latency: 3.77839506e-01 ns/access
+====END_METRICS====
+Working on problem size N=67108864 
+ inside sum_vector problem_setup, N=67108864 
+ inside sum_vector perform_sum, N=67108864 
+====METRICS====
+Elapsed time for N=67108864 is : 0.023574 seconds
+ Sum result = 2251799780130816 
+MFLOP/s: 5693.44
+Memory Bandwidth Utilization: 11.12%
+Average Memory Latency: 3.51281583e-01 ns/access
+====END_METRICS====
+Working on problem size N=134217728 
+ inside sum_vector problem_setup, N=134217728 
+ inside sum_vector perform_sum, N=134217728 
+====METRICS====
+Elapsed time for N=134217728 is : 0.043820 seconds
+ Sum result = 9007199187632128 
+MFLOP/s: 6125.81
+Memory Bandwidth Utilization: 11.96%
+Average Memory Latency: 3.26487385e-01 ns/access
+====END_METRICS====
+Working on problem size N=268435456 
+ inside sum_vector problem_setup, N=268435456 
+ inside sum_vector perform_sum, N=268435456 
+====METRICS====
+Elapsed time for N=268435456 is : 0.086504 seconds
+ Sum result = 36028796884746240 
+MFLOP/s: 6206.29
+Memory Bandwidth Utilization: 12.12%
+Average Memory Latency: 3.22253678e-01 ns/access
+====END_METRICS====
