@@ -1,0 +1,60 @@
+Working on problem size N=8388608 
+ inside direct_sum problem_setup, N=8388608 
+Inside direct_sum perform_sum, N=8388608 
+====METRICS====
+Elapsed time for N=8388608 is : 0.003540 seconds
+ Sum result = -8875907327416347670 
+MFLOP/s for N=8388608 is : 2369.360466 
+Memory bandwidth utilized for N=8388608 is : 18.510631% 
+Estimated memory latency for N=8388608 is : 0.211027 nanoseconds
+====END_METRICS====
+Working on problem size N=16777216 
+ inside direct_sum problem_setup, N=16777216 
+Inside direct_sum perform_sum, N=16777216 
+====METRICS====
+Elapsed time for N=16777216 is : 0.005949 seconds
+ Sum result = -4339977143222582643 
+MFLOP/s for N=16777216 is : 2820.325686 
+Memory bandwidth utilized for N=16777216 is : 22.033796% 
+Estimated memory latency for N=16777216 is : 0.177284 nanoseconds
+====END_METRICS====
+Working on problem size N=33554432 
+ inside direct_sum problem_setup, N=33554432 
+Inside direct_sum perform_sum, N=33554432 
+====METRICS====
+Elapsed time for N=33554432 is : 0.011839 seconds
+ Sum result = 6229107204471185996 
+MFLOP/s for N=33554432 is : 2834.317541 
+Memory bandwidth utilized for N=33554432 is : 22.143106% 
+Estimated memory latency for N=33554432 is : 0.176409 nanoseconds
+====END_METRICS====
+Working on problem size N=67108864 
+ inside direct_sum problem_setup, N=67108864 
+Inside direct_sum perform_sum, N=67108864 
+====METRICS====
+Elapsed time for N=67108864 is : 0.023689 seconds
+ Sum result = 5807525442504082416 
+MFLOP/s for N=67108864 is : 2832.935410 
+Memory bandwidth utilized for N=67108864 is : 22.132308% 
+Estimated memory latency for N=67108864 is : 0.176495 nanoseconds
+====END_METRICS====
+Working on problem size N=134217728 
+ inside direct_sum problem_setup, N=134217728 
+Inside direct_sum perform_sum, N=134217728 
+====METRICS====
+Elapsed time for N=134217728 is : 0.044790 seconds
+ Sum result = -6146111461289756583 
+MFLOP/s for N=134217728 is : 2996.612400 
+Memory bandwidth utilized for N=134217728 is : 23.411035% 
+Estimated memory latency for N=134217728 is : 0.166855 nanoseconds
+====END_METRICS====
+Working on problem size N=268435456 
+ inside direct_sum problem_setup, N=268435456 
+Inside direct_sum perform_sum, N=268435456 
+====METRICS====
+Elapsed time for N=268435456 is : 0.085117 seconds
+ Sum result = 3066725290435472545 
+MFLOP/s for N=268435456 is : 3153.711313 
+Memory bandwidth utilized for N=268435456 is : 24.638370% 
+Estimated memory latency for N=268435456 is : 0.158543 nanoseconds
+====END_METRICS====
