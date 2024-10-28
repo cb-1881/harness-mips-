@@ -25,7 +25,9 @@ double latency_compute(double nanoseconds, double accesses) {
 }
 
 
-
+   double BANDWIDTH = 204.8e9;  // calculated from perlmutter specs
+   double element_operations = 2.0;  // 2 operations per element
+   double bytes_needed = sizeof(uint64_t);  // bytes for manipulating metrics
 /* The benchmarking program */
 int main(int argc, char** argv) 
 {
@@ -34,9 +36,9 @@ int main(int argc, char** argv)
    #define MAX_PROBLEM_SIZE 1 << 28  // 256M
    std::vector<int64_t> problem_sizes{ MAX_PROBLEM_SIZE >> 5, MAX_PROBLEM_SIZE >> 4, MAX_PROBLEM_SIZE >> 3, MAX_PROBLEM_SIZE >> 2, MAX_PROBLEM_SIZE >> 1, MAX_PROBLEM_SIZE};
    std::vector<uint64_t> A(MAX_PROBLEM_SIZE);
-   double BANDWIDTH = 204.8e9;  // calculated from perlmutter specs
-   double element_operations = 2.0;  // 2 operations per element
-   double bytes_needed = sizeof(uint64_t);  // Bytes accessed per element
+   // double BANDWIDTH = 204.8e9;  // calculated from perlmutter specs
+   // double element_operations = 2.0;  // 2 operations per element
+   // double bytes_needed = sizeof(uint64_t);  // bytes for manipulating metrics
 
 
 
@@ -45,7 +47,7 @@ int main(int argc, char** argv)
    {
       printf("Working on problem size N=%lld \n", n);
 
-      // Set up the problem
+     
       setup(n, &A[0]);
 
       // timer start
@@ -57,9 +59,10 @@ int main(int argc, char** argv)
       // timer stop
       auto end_time = std::chrono::high_resolution_clock::now();
 
-      // Calculate elapsed time in nanoseconds
-      auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time);
-      double runtime_ns = static_cast<double>(elapsed.count());  // Convert to double
+      // get nanoseconds
+     std::chrono::duration<double, std::nano> elapsed_time = end_time - start_time;
+      double runtime_ns = elapsed_time.count();
+
 
 
        printf("====METRICS====\n");
@@ -67,12 +70,12 @@ int main(int argc, char** argv)
       printf(" Sum result = %lld \n", t);
 
       // calc metrics
-      double totalOps = element_operations * n;
-      double totalBytes = bytes_needed * n;
+      double operations = element_operations * n;
+      double get_total_bytes = bytes_needed * n;
 
-      double mf = mflop_compute(totalOps, runtime_ns / 1e9);  // Convert ns to seconds
-      double bw = bandwith_compute(totalBytes, runtime_ns / 1e9, BANDWIDTH);
-      double lat = latency_compute(runtime_ns, n);  // Nanoseconds per access
+      double mf = mflop_compute(operations, runtime_ns / 1e9);  // nano to seconds
+      double bw = bandwith_compute(get_total_bytes, runtime_ns / 1e9, BANDWIDTH);
+      double lat = latency_compute(runtime_ns, n);  // latency call
 
  
 
